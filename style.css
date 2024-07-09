@@ -1,0 +1,13 @@
+.messageBody{
+    background-color: rgb(59, 57, 57);
+    /* text-align: center; */
+    color: azure;
+    display: flex;
+}
+
+.messageUsername{
+    background-color: rgb(59, 57, 57);
+    /* text-align: center; */
+    color: azure;
+    display: flex;
+}
