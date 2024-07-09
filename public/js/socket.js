@@ -14,13 +14,18 @@ form.addEventListener("submit", (e) => {
 });
 
 socket.on("send message", (data) => {
-    let name = document.createElement('strong');
-    name.classList.add('messageUsername');
-    name.textContent = data.username + ": ";
-    messageArea.appendChild(name);
-
-    let chat = document.createElement('p');
-    chat.classList.add('messageBody');
-    chat.textContent = data.message;
-    messageArea.appendChild(chat);
+    appendMessage(data.username, data.message);
 });
+
+function appendMessage(username, messageText) {
+    let nameElement = document.createElement('strong');
+    nameElement.classList.add('messageUsername');
+    nameElement.textContent = username + ": ";
+
+    let messageElement = document.createElement('p');
+    messageElement.classList.add('messageBody');
+    messageElement.textContent = messageText;
+
+    messageArea.appendChild(nameElement);
+    messageArea.appendChild(messageElement);
+}
