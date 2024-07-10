@@ -6,16 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatSki</title>
-    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <link rel="stylesheet" href="../public/css/style.css">
+    <!-- Use Bootstrap CSS CDN -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-   
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body class=" text-bg-dark">
+<body class="text-bg-dark">
     <div class="container text-center">
-
         <div class="row">
             <div class="col-12">
                 <h1 class="text-center" style="margin-bottom: 5rem; margin-top: 2rem;">Welcome to ChatSki</h1>
@@ -30,41 +28,41 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="border border-white rounded p-4">
-                <form class="needs-validation" novalidate id="form" >
+                <form class="needs-validation" novalidate id="form">
                     <div class="row mb-3 col-8">
                         <label for="username" class="form-label">
                             <h6>Username</h6>
                         </label>
-                        <div class=" input-group">
+                        <div class="input-group">
                             <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                            <input type="text" class="form-control " id="username"
-                                aria-describedby="inputGroupPrepend2"  required>
+                            <input type="text" class="form-control" id="username" aria-describedby="inputGroupPrepend2" required>
                         </div>
                     </div>
                     <div class="d-flex align-items-center row mb-3">
-                        <div class=" col-10">
+                        <div class="col-10">
                             <label for="textArea" class="form-label">
                                 <h6>Chat</h6>
                             </label>
                             <textarea class="form-control" id="textArea" rows="5"></textarea>
                         </div>
-                        <div class=" col-2 ">
-                            <button class="btn btn-outline-light  " type="submit"><img src="../public/images/send-svgrepo-com.svg"
-                                    alt="Send" srcset="" class="img-fluid" style="width: 30px;height:30px;"></button>
+                        <div class="col-2">
+                            <button class="btn btn-outline-light" type="submit">
+                                <img src="/public/images/send-button.svg" alt="Send" class="img-fluid" style="width: 30px;height:30px;">
+                            </button>
                         </div>
-                    </form>
                     </div>
-                    
+                </form>
             </div>
         </div>
     </div>
+    <!-- Socket.io -->
     <script src="/socket.io/socket.io.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- jQuery, Popper.js, and Bootstrap JS CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script src="../src/socket.js"></script>
-   
+    <!-- Your custom JS -->
+    <script src="/js/script.js"></script>
 </body>
 
 </html>
