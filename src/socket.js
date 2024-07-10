@@ -4,6 +4,13 @@ let userName = document.getElementById('username');
 let message = document.getElementById('textArea');
 let messageArea = document.getElementById('messageArea');
 
+const setUserName = (name) => {
+    userName = name;
+};
+
+const getUserName = () => {
+    return userName;
+};
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -29,3 +36,18 @@ function appendMessage(username, messageText) {
     messageArea.appendChild(nameElement);
     messageArea.appendChild(messageElement);
 }
+
+message.addEventListener('keypress',()=>{
+    socket.broadcast.emit(appendActivity(),`${userName} is typing...`);
+})
+
+function appendActivity(){
+    let activityElement=document.createElement('h7');
+    activityElement.classList.add('activityBody');
+
+}
+
+
+
+let activityTimer;
+export{setUserName,getUserName}
