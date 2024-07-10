@@ -5,14 +5,18 @@ const http=require('http');
 const server = http.createServer(app);
 const io=new Server(server);
 const port=5000;
+const hbs=require('hbs');
 const path = require('path');
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
-app.use(express.static(path.join(__dirname, 'public')));
+app.set("view engine",'hbs');
+app.set('views', path.join(__dirname, '../views'));
+app.use(express.static(path.join(__dirname, '../public')));
+app.use('/js', express.static(path.join(__dirname, './'))); // Serve script.js from src directory
 
 app.get('/',(req,res)=>{
-    res.sendFile(__dirname, 'public','index.html');
-
+    res.render('index');
+    
 });
 io.on('connection',(socket)=>{
     console.log('user connected')
