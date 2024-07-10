@@ -1,12 +1,15 @@
-const express = require('express');
+import express from 'express';
+import { createServer } from 'http';
+import { Server } from 'socket.io';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 const app = express();
-const { Server } = require("socket.io");
-const http = require('http');
-const server = http.createServer(app);
+const server = createServer(app);
 const io = new Server(server);
-const port = 5000;
-const hbs = require('hbs');
-const path = require('path');
+const port = process.env.PORT||5000;
+const __filename=fileURLToPath(import.meta.url)
+const __dirname=path.dirname(__filename);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
