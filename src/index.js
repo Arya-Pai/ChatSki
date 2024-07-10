@@ -15,6 +15,8 @@ app.set("view engine", 'hbs');
 app.set('views', path.join(__dirname, '../views'));
 app.use(express.static(path.join(__dirname, '../public')));
 app.use('/js', express.static(path.join(__dirname, './')));
+app.use(express.static(path.join(__dirname, '../src'))); // Serve static files from src
+
 
 app.get('/', (req, res) => {
     res.render('index');  // Renders the index.hbs file

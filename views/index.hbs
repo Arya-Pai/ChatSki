@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatSki</title>
     <!-- Use Bootstrap CSS CDN -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- Your custom CSS -->
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -47,7 +47,7 @@
                         </div>
                         <div class="col-2">
                             <button class="btn btn-outline-light" type="submit">
-                                <img src="/public/images/send-button.svg" alt="Send" class="img-fluid" style="width: 30px;height:30px;">
+                                <img src="/images/send-button.svg" alt="Send" class="img-fluid" style="width: 30px;height:30px;">
                             </button>
                         </div>
                     </div>
@@ -55,14 +55,10 @@
             </div>
         </div>
     </div>
-    <!-- Socket.io -->
     <script src="/socket.io/socket.io.js"></script>
-    <!-- jQuery, Popper.js, and Bootstrap JS CDN -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Your custom JS -->
-    <script src="/js/script.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+    <script src="/socket.js"></script>
 </body>
 
 </html>
