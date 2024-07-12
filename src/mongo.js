@@ -9,7 +9,7 @@ const signUpSchema=new mongoose.Schema({
     username:{
         type:String,
         required:true,
-        minlength:7,
+        minlength:3,
         maxlength:15,
     },
     email:{
@@ -29,9 +29,10 @@ const signUpSchema=new mongoose.Schema({
 const signup=mongoose.model('signup',signUpSchema);
 function validateUser(data){
     const signupValidate=Joi.object({
-        username:Joi.string().min(3).max(15).required(),
-        email:Joi.string().min(3).max(15).required(),
-        password:Joi.string().min(3).max(20).required()
+        username: Joi.string().min(3).max(15).required(),
+        email: Joi.string().email().required(),
+        password: Joi.string().min(8).max(20).required(),
+        passwordConfirm: Joi.string().valid(Joi.ref('password')).required()
 
     });
     return signupValidate.validate(data);

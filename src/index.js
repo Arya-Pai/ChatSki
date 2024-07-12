@@ -62,7 +62,11 @@ app.get('/signup', (req, res) => {
 
 app.post('/signup', async (req, res) => {
     const { error } = validate(req.body);
-    if (error) return res.status(400).send("Validation error");
+    if (error) {
+        console.log(error);
+        return res.status(400).send("Validation error");
+
+};
 
     const data = {
         username: req.body.username,
