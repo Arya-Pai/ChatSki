@@ -1,21 +1,14 @@
 let socket = io();
 let form = document.getElementById('form');
-let userName = document.getElementById('username');
+let username = req.body.username;
 let message = document.getElementById('textArea');
-let messageArea = document.getElementById('messageArea');
+let messageArea = document.getElementById('messageArea');c
 
-const setUserName = (name) => {
-    userName = name;
-};
-
-const getUserName = () => {
-    return userName;
-};
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     if (message.value && userName.value) {
-        socket.emit('send message', { username: userName.value, message: message.value });
+        socket.emit('send message', { username: username.value, message: message.value });
         message.value = "";
     }
 });

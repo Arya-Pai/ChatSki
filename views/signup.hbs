@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 
 <body class="text-bg-dark ">
@@ -15,24 +15,24 @@
             <div class="col-7 ">
                 <div class="card  mt-4 align-items-center">
                     <div class="card-body pt-4">
-                        <h3 class="card-title justify-content-center text-center mb-4">Login</h3>
-                        <form action="/" method="post">
+                        <h3 class="card-title justify-content-center text-center mb-4">Sign Up</h3>
+                        <form action="/signup" method="post">
                             <div class="col-md-12">
                                 <label for="validationDefaultUsername" class="form-label">Username</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                                    <input type="text" class="form-control" id="validationDefaultUsername"
+                                    <input type="text" class="form-control" id="username"
                                         aria-describedby="inputGroupPrepend2" required>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" name="email"
+                                <input type="email" class="form-control" id="email" name="email"
                                     placeholder="name@example.com" required>
                             </div>
                             <div class="mb-3">
                                 <label for="inputPassword6" class="form-label">Password</label>
-                                <input type="password" id="inputPassword6" name="password" class="form-control"
+                                <input type="password" id="password" name="password" class="form-control"
                                     aria-describedby="passwordHelpInline" required>
                                 <div id="passwordHelpInline" class="form-text">
                                     Must be 8-20 characters long.

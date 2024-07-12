@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import Joi from "joi";
-mongoose.connect("mongodb://localhost:27017/chatApplication");
+mongoose.connect("mongodb://localhost:27017/chatApplication")
 .then(()=>{
     console.log('MongoDB connected');
 });
@@ -22,20 +22,19 @@ const signUpSchema=new mongoose.Schema({
         type:String,
         required:true,
         minlength:8,
-        maxlenght:15
+        maxlenght:20
     },
 });
 
 const signup=mongoose.model('signup',signUpSchema);
-function validate(data){
+function validateUser(data){
     const signupValidate=Joi.object({
         username:Joi.string().min(3).max(15).required(),
         email:Joi.string().min(3).max(15).required(),
-        password:Joi.string().min(3).max(15).required()
+        password:Joi.string().min(3).max(20).required()
 
     });
     return signupValidate.validate(data);
 }
 
-exports.signup=signup;
-exports.validate=validate;
+export { signup as signup, validateUser as validate };
