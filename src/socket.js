@@ -1,46 +1,29 @@
-let socket = io();
-let form = document.getElementById('form');
-let username = req.body.username;
-let message = document.getElementById('textArea');
-let messageArea = document.getElementById('messageArea');c
-
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    if (message.value && userName.value) {
-        socket.emit('send message', { username: username.value, message: message.value });
-        message.value = "";
+const username = '{{username}}';  // Get the username from the server-side template
+const socket = io({
+    query: {
+        username: username
     }
 });
 
-socket.on("send message", (data) => {
-    appendMessage(data.username, data.message);
+const messages = document.getElementById('messages');
+const form = document.getElementById('messageForm');
+const input = document.getElementById('messageInput');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault(); // Prevent the form from submitting
+    const chat = input.value;
+    socket.emit('send message', chat);
+    input.value = '';
+});
+socket.on('message', (msg) => {
+    const item = document.createElement('li');
+    item.textContent = msg;
+    messages.appendChild(item);
 });
 
-function appendMessage(username, messageText) {
-    let nameElement = document.createElement('strong');
-    nameElement.classList.add('messageUsername');
-    nameElement.textContent = username + ": ";
+socket.on('send message', ({ username, chat }) => {
+    const item = document.createElement('li');
+    item.textContent = `${username}: ${chat}`;
+    messages.appendChild(item);
+});
 
-    let messageElement = document.createElement('p');
-    messageElement.classList.add('messageBody');
-    messageElement.textContent = messageText;
-
-    messageArea.appendChild(nameElement);
-    messageArea.appendChild(messageElement);
-}
-
-message.addEventListener('keypress',()=>{
-    socket.broadcast.emit(appendActivity(),`${userName} is typing...`);
-})
-
-function appendActivity(){
-    let activityElement=document.createElement('h7');
-    activityElement.classList.add('activityBody');
-
-}
-
-
-
-let activityTimer;
-export{setUserName,getUserName}
